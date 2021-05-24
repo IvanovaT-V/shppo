@@ -9,11 +9,10 @@ import data.COC;
 public class Curriculum implements Component{
 
 public String name;
-private List<Component> Disces = new ArrayList<>();
+private List<Component> disces = new ArrayList<>();
 
-public Curriculum(String name, List<Component> disces) {
+public Curriculum(String name) {
 	this.name = name;
-	this.Disces = disces;
 }
 
 public Curriculum() {
@@ -23,9 +22,17 @@ public Curriculum() {
 
 public void addD(Component d)
 {
-		
-			Disces.add(d);
+	
+	ZUN zunIn = ((Subject) d).getZUNin();
+	COC cIn = ((ZUN) zunIn).getCode();
+	if (disces.isEmpty() == true) disces.add(d);
+	for(Component s : disces) {
+		ZUN zunOut = ((Subject) s).getZUNout();
+		COC cOut = ((ZUN) zunOut).getCode();
+		if (cIn == cOut) disces.add(disces.lastIndexOf(s)+1, d);		
 	}
+
+}
 		
 	
 
@@ -35,8 +42,13 @@ public void delD(Component d)
 }
 
 public List<Component> getComponent(COC code){
-	return Disces;
-	
+	return disces;
+
+}
+
+@Override
+public String toString() {
+	return "Curriculum [name=" + name + ", disces=" + disces + "]";
 };
 
 

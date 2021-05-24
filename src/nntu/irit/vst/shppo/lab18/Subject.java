@@ -20,6 +20,30 @@ public class Subject implements Component {
 		ZUNout = new ZUN(zUNout);
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public ZUN getZUNin() {
+		return ZUNin;
+	}
+
+	public ZUN getZUNout() {
+		return ZUNout;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setZUNin(ZUN zUNin) {
+		ZUNin = zUNin;
+	}
+
+	public void setZUNout(ZUN zUNout) {
+		ZUNout = zUNout;
+	}
+
 	@Override
 	public String toString() {
 		return "Subject [name=" + name + ", ZUNin=" + ZUNin + ", ZUNout=" + ZUNout + "]";
@@ -34,10 +58,12 @@ public class Subject implements Component {
 		zun.add(ZUNout);
 		return zun;
 	}
-	
 
 	
-}
+	}
+	
+
+
 
 
 
